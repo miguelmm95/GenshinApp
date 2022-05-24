@@ -6,23 +6,28 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import es.uji.al386686.genshinapp.Network.SingletonHolder
 
-class DataBase private constructor(context: Context){
+class DataBase private constructor(context: Context) {
 
-    companion object: SingletonHolder<DataBase, Context>(::DataBase)
-    val dao : DAO
+    companion object : SingletonHolder<DataBase, Context>(::DataBase)
 
-    init{
-        val db = Room.databaseBuilder(context, AbstractDatabase::class.java,"database").build()
+    val dao: DAO
+
+    init {
+        val db = Room.databaseBuilder(context, AbstractDatabase::class.java, "database").build()
         dao = db.getDAO()
     }
 }
 
 @Database(
-    entities = [
-        GICharacter::class
-    ],
-    version = 1
+        entities = [
+            GICharacter::class,
+            Weapon::class,
+            Artifact::class,
+            Vision::class,
+            WeaponType::class
+        ],
+        version = 1
 )
-abstract class AbstractDatabase: RoomDatabase() {
+abstract class AbstractDatabase : RoomDatabase() {
     abstract fun getDAO(): DAO
 }
