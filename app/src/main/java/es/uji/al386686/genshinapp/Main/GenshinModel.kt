@@ -51,23 +51,6 @@ class GenshinModel(applicationContext: Context) {
                 }
             }
 
-    fun getWeaponType(listener: Response.Listener<List<WeaponType>>,
-                      errorListener: Response.ErrorListener) =
-            GlobalScope.launch(Dispatchers.Main){
-                var weaponTypes = withContext(Dispatchers.IO){
-                    dataBase.dao.getWeaponsType()
-                }
-                if (weaponTypes.isEmpty()){
-                    weaponTypes = withContext(Dispatchers.IO){
-                        dataBase.dao.getTypeFromWeapons()
-                    }
-                    listener.onResponse(weaponTypes)
-                }else{
-                    listener.onResponse(weaponTypes)
-                }
-
-            }
-
     fun getWeapon(listener: Response.Listener<List<Weapon>>,
                   errorListener: Response.ErrorListener) =
             GlobalScope.launch(Dispatchers.Main) {
@@ -88,6 +71,22 @@ class GenshinModel(applicationContext: Context) {
                 }
             }
 
+    fun getWeaponType(listener: Response.Listener<List<WeaponType>>,
+                      errorListener: Response.ErrorListener) =
+            GlobalScope.launch(Dispatchers.Main) {
+                var weaponTypes = withContext(Dispatchers.IO) {
+                    dataBase.dao.getWeaponsType()
+                }
+                if (weaponTypes.isEmpty()) {
+                    weaponTypes = withContext(Dispatchers.IO) {
+                        dataBase.dao.getTypeFromWeapons()
+                    }
+                    listener.onResponse(weaponTypes)
+                } else {
+                    listener.onResponse(weaponTypes)
+                }
+
+            }
 
     fun getArtifact(listener: Response.Listener<List<Artifact>>,
                     errorListener: Response.ErrorListener) =

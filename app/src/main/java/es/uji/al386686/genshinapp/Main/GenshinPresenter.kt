@@ -21,7 +21,7 @@ class GenshinPresenter(val view: MainActivity, val model: GenshinModel) {
 
         model.getWeaponType({ weaponsType ->
             view.showWeaponsType(weaponsType)
-        }, { error -> view.showError(error.toString())})
+        }, { error -> view.showError(error.toString()) })
 
         model.getArtifact({ artifacts ->
             view.showArtifacts(artifacts)
@@ -29,18 +29,59 @@ class GenshinPresenter(val view: MainActivity, val model: GenshinModel) {
     }
 
     fun setChosenCharacter(character: GICharacter) {
+        if (character != null) {
+            view.enableCharacterSearchButton = true
+        }
     }
 
     fun setChosenWeapon(weapon: Weapon) {
+        if (weapon != null) {
+            view.enableWeaponSearchButton = true
+        }
     }
 
     fun setChosenArtifact(artifact: Artifact) {
+        if (artifact != null) {
+            view.enableArtifactSearchButton = true
+        }
     }
 
     fun setChosenVision(vision: Vision) {
+        if (vision != null) {
+            view.enableCharacterVisionSearchButton = true
+            if (view.enableCharacterTypeWeaponSearchButton) {
+                view.enableVisionWeaponTypeSearch = true
+            }
+        }
     }
 
     fun setChosenWeaponType(weaponType: WeaponType) {
+        if (weaponType != null) {
+            view.enableCharacterTypeWeaponSearchButton = true
+            view.enableWeaponTypeSearchButton = true
+
+            if (view.enableCharacterVisionSearchButton) {
+                view.enableVisionWeaponTypeSearch = true
+            }
+        }
+    }
+
+    fun makeCharacterVisible() {
+        view.weaponVisible = false
+        view.characterVisible = true
+        view.artifactVisible = false
+    }
+
+    fun makeWeaponVisible() {
+        view.characterVisible = false
+        view.weaponVisible = true
+        view.artifactVisible = false
+    }
+
+    fun makeArtifactVisible() {
+        view.artifactVisible = true
+        view.characterVisible = false
+        view.weaponVisible = false
     }
 
 }

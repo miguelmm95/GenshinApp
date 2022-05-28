@@ -104,15 +104,15 @@ class Network private constructor(context: Context) {
     private fun processArtifacts(it: JSONArray, listener: Response.Listener<List<Artifact>>, errorListener: Response.ErrorListener) {
         val artifacts = ArrayList<Artifact>()
         try {
-            for (i in 0 until it.length()){
+            for (i in 0 until it.length()) {
                 val artifactObject = it[i] as JSONObject
                 val id = artifactObject.getString(ARTIFACT_ID)
                 val name = artifactObject.getString(NAME)
                 val twoBonus = artifactObject.getString(ARTIFACT_2BONUS)
                 val fourBonus = artifactObject.getString(ARTIFACT_4BONUS)
-                artifacts.add(Artifact(id.toInt(),name,twoBonus,fourBonus))
+                artifacts.add(Artifact(id.toInt(), name, twoBonus, fourBonus))
             }
-        }catch (e:JSONException) {
+        } catch (e: JSONException) {
             errorListener.onErrorResponse(VolleyError("BAD JSON FORMAT"))
             return
         }

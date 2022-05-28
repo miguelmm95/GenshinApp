@@ -10,102 +10,101 @@
         android:id="@+id/charactersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Character"
         android:textSize="30sp"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/charactersSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/radioSearchGroup" />
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioSearchGroup"
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/characterVisionTextView"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Vision"
         android:textSize="30sp"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/charactersSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/charactersSpinner" />
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weaponsTypeSpinner"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/visionAndWeaponTypeTextView"
+        android:layout_width="336dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="32dp"
+        android:text="Search by Vision And Type of Weapon"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/characterVisionSearch"
+        app:layout_constraintStart_toStartOf="@+id/characterVisionSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/characterVisionSpinner"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/weaponUsedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="174dp"
+        android:text="Type of Weapon Used"
+        android:textSize="30sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioSearchGroup"
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/weaponsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="191dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Weapon"
         android:textSize="30sp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@+id/charactersSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/radioSearchGroup" />
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioSearchGroup"
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/artifactsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="164dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Artifact"
         android:textSize="30sp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@+id/charactersSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/radioSearchGroup" />
-
-    <Spinner
-        android:id="@+id/charactersSpinner"
-        android:layout_width="272dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.366"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/charactersTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/radioSearchGroup"
+        tools:visibility="gone" />
 
     <Spinner
         android:id="@+id/characterVisionSpinner"
-        android:layout_width="272dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="88dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/characterVisionTextView" />
+        android:layout_width="164dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/characterVisionTextView"
+        app:layout_constraintTop_toBottomOf="@+id/characterVisionTextView"
+        tools:visibility="gone" />
 
     <Spinner
         android:id="@+id/weaponsTypeSpinner"
-        android:layout_width="272dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="88dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/characterVisionTextView" />
-
-    <Spinner
-        android:id="@+id/weaponsSpinner"
-        android:layout_width="272dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.366"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/charactersTextView" />
-
-    <Spinner
-        android:id="@+id/artifactsSpinner"
-        android:layout_width="272dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.366"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/charactersTextView" />
+        android:layout_width="164dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/weaponUsedTextView"
+        app:layout_constraintTop_toBottomOf="@+id/weaponUsedTextView"
+        tools:visibility="gone" />
 
     <RadioGroup
         android:id="@+id/radioSearchGroup"
@@ -123,6 +122,7 @@
             android:id="@+id/charactersRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onCharacterRBSelected"
             android:text="Characters" />
 
         <RadioButton
@@ -138,5 +138,143 @@
             android:text="Artifacts" />
 
     </RadioGroup>
+
+    <AutoCompleteTextView
+        android:id="@+id/characterAutoTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="Character"
+        app:layout_constraintEnd_toEndOf="@+id/charactersTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/charactersTextView" />
+
+    <AutoCompleteTextView
+        android:id="@+id/weaponsAutoTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="weapons"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/weaponsTextView"
+        app:layout_constraintStart_toStartOf="@+id/weaponsTextView"
+        app:layout_constraintTop_toBottomOf="@+id/weaponsTextView"
+        tools:visibility="gone" />
+
+    <AutoCompleteTextView
+        android:id="@+id/artifactsAutoTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Artifact"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/artifactsTextView"
+        app:layout_constraintStart_toStartOf="@+id/artifactsTextView"
+        app:layout_constraintTop_toBottomOf="@+id/artifactsTextView"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/characterSearchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="72dp"
+        android:enabled="false"
+        android:text="SEARCH"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/characterAutoTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/characterAutoTextView"
+        app:layout_constraintTop_toTopOf="@+id/characterAutoTextView"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/characterVisionSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="52dp"
+        android:enabled="false"
+        android:text="SEARCH"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/characterVisionSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/characterVisionSpinner"
+        app:layout_constraintTop_toTopOf="@+id/characterVisionSpinner"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/characterWeaponUsedSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="52dp"
+        android:enabled="false"
+        android:text="SEARCH"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/weaponsTypeSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/weaponsTypeSpinner"
+        app:layout_constraintTop_toTopOf="@+id/weaponsTypeSpinner"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/weaponSearchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="72dp"
+        android:enabled="false"
+        android:text="SEARCH"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/weaponsAutoTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/weaponsAutoTextView"
+        app:layout_constraintTop_toTopOf="@+id/weaponsAutoTextView"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/weaponTypeSearchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:enabled="false"
+        android:text="SEARCH"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/weaponsTypeSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/weaponsTypeSpinner"
+        app:layout_constraintTop_toTopOf="@+id/weaponsTypeSpinner"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/artifactButtonSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:enabled="false"
+        android:text="SEARCH"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/artifactsAutoTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/artifactsAutoTextView"
+        app:layout_constraintTop_toTopOf="@+id/artifactsAutoTextView"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/visionAndWeaponTypeSearchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:enabled="false"
+        android:text="Search"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/visionAndWeaponTypeTextView"
+        app:layout_constraintStart_toStartOf="@+id/visionAndWeaponTypeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/visionAndWeaponTypeTextView"
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
