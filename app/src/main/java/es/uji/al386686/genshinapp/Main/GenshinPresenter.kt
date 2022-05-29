@@ -31,24 +31,29 @@ class GenshinPresenter(val view: MainActivity, val model: GenshinModel) {
     fun setChosenCharacter(character: GICharacter) {
         if (character != null) {
             view.enableCharacterSearchButton = true
+            model.characterName = character.name
         }
     }
 
     fun setChosenWeapon(weapon: Weapon) {
         if (weapon != null) {
             view.enableWeaponSearchButton = true
+            model.weaponName = weapon.name
         }
     }
 
     fun setChosenArtifact(artifact: Artifact) {
         if (artifact != null) {
             view.enableArtifactSearchButton = true
+            model.artifactName = artifact.name
         }
     }
 
     fun setChosenVision(vision: Vision) {
         if (vision != null) {
             view.enableCharacterVisionSearchButton = true
+            model.vision = vision.visionType
+
             if (view.enableCharacterTypeWeaponSearchButton) {
                 view.enableVisionWeaponTypeSearch = true
             }
@@ -59,6 +64,7 @@ class GenshinPresenter(val view: MainActivity, val model: GenshinModel) {
         if (weaponType != null) {
             view.enableCharacterTypeWeaponSearchButton = true
             view.enableWeaponTypeSearchButton = true
+            model.weaponType = weaponType.type
 
             if (view.enableCharacterVisionSearchButton) {
                 view.enableVisionWeaponTypeSearch = true
@@ -66,22 +72,37 @@ class GenshinPresenter(val view: MainActivity, val model: GenshinModel) {
         }
     }
 
+    fun startSearch() {
+        view.onSearchPressed(model.searchInfo)
+    }
+
     fun makeCharacterVisible() {
         view.weaponVisible = false
         view.characterVisible = true
         view.artifactVisible = false
+
+        model.isCharacter = true
+        model.isWeapon = false
+        model.isArtifact = false
     }
 
     fun makeWeaponVisible() {
         view.characterVisible = false
         view.weaponVisible = true
         view.artifactVisible = false
+
+        model.isWeapon = true
+        model.isCharacter = false
+        model.isArtifact = false
     }
 
     fun makeArtifactVisible() {
         view.artifactVisible = true
         view.characterVisible = false
         view.weaponVisible = false
-    }
 
+        model.isArtifact = true
+        model.isCharacter = false
+        model.isWeapon = false
+    }
 }

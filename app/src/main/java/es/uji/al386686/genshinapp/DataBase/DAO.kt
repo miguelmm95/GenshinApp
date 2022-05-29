@@ -34,11 +34,23 @@ interface DAO {
     fun getWeapons(): List<Weapon>
 
     @Query("SELECT * FROM weaponstype ORDER BY 'type'")
-    fun getWeaponsType() : List<WeaponType>
+    fun getWeaponsType(): List<WeaponType>
 
     @Query("SELECT DISTINCT type FROM weapons ORDER BY 'type'")
     fun getTypeFromWeapons(): List<WeaponType>
 
     @Query("SELECT * FROM artifacts ORDER BY 'name'")
     fun getArtifacts(): List<Artifact>
+
+    @Query("SELECT * FROM characters WHERE 'name' == :name")
+    fun getCharacters(name : String) : GICharacter
+
+    @Query("SELECT * FROM characters WHERE 'weapon' == :weaponType")
+    fun getCharactersByWeaponType(weaponType: String): GICharacter
+
+    @Query("SELECT * FROM characters WHERE 'visionType' == :vision")
+    fun getCharactersByVision(vision: String?): List<GICharacter>
+
+    @Query("SELECT * FROM characters WHERE 'weapon' == :weaponType AND 'visionType' == :vision")
+    fun getCharactersByVisionAndWeaponType(weaponType: String, vision: String) : GICharacter
 }

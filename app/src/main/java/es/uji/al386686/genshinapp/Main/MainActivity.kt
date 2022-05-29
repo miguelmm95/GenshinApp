@@ -1,5 +1,6 @@
 package es.uji.al386686.genshinapp.Main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -8,6 +9,8 @@ import android.view.View
 import android.widget.*
 import es.uji.al386686.genshinapp.DataBase.*
 import es.uji.al386686.genshinapp.R
+import es.uji.al386686.genshinapp.Search.SearchActivity
+import es.uji.al386686.genshinapp.SearchInfo
 
 class MainActivity : AppCompatActivity(), IMainActivity {
 
@@ -67,6 +70,7 @@ class MainActivity : AppCompatActivity(), IMainActivity {
         charactersRadioButton.setOnClickListener { presenter.makeCharacterVisible() }
         weaponsRadioButton.setOnClickListener { presenter.makeWeaponVisible() }
         artifactsRadioButton.setOnClickListener { presenter.makeArtifactVisible() }
+        characterVisionSearch.setOnClickListener { presenter.startSearch() }
 
         val model = GenshinModel(applicationContext)
         presenter = GenshinPresenter(this, model)
@@ -225,7 +229,7 @@ class MainActivity : AppCompatActivity(), IMainActivity {
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }.also { weaponsTypeSpinner.onItemSelectedListener = it }
     }
-
+    
     override fun showArtifacts(artifacts: List<Artifact>) {
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, artifacts)
         artifactsAutoTextView.apply {
@@ -245,5 +249,12 @@ class MainActivity : AppCompatActivity(), IMainActivity {
                 }
             })
         }
+    }
+
+    override fun onSearchPressed(info: SearchInfo) {
+        val intent = Intent(this,SearchActivity::class.java).apply { 
+            putExtra(SearchActivity.SEARCH_INFO,info)
+        }
+        startActivity(intent)
     }
 }

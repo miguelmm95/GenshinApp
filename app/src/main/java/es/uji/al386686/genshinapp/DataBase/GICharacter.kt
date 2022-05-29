@@ -11,7 +11,7 @@ data class GICharacter(
         val description: String,
         val gender: String,
         val birthday: String,
-        val visionType: String,
+        @ColumnInfo(name = "visionType") val visionType: String,
         val weapon: String,
 ) {
 

@@ -1,6 +1,7 @@
 package es.uji.al386686.genshinapp.Main
 
 import es.uji.al386686.genshinapp.DataBase.*
+import es.uji.al386686.genshinapp.SearchInfo
 
 interface IMainActivity {
     var characterVisible: Boolean
@@ -20,4 +21,5 @@ interface IMainActivity {
     fun showArtifacts(artifacts: List<Artifact>)
     fun showVisions(visions: List<Vision>)
     fun showWeaponsType(weaponType: List<WeaponType>)
+    fun onSearchPressed(info: SearchInfo)
 }
