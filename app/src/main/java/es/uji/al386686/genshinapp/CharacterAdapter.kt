@@ -16,9 +16,9 @@ class CharacterAdapter(val characters: List<GICharacter>, val view: SearchActivi
         var weaponUsed: TextView
 
         init {
-            name = view.findViewById(R.id.characterName)
-            vision = view.findViewById(R.id.characterVision)
-            weaponUsed = view.findViewById(R.id.characterWeaponUsed)
+            name = view.findViewById(R.id.weaponName)
+            vision = view.findViewById(R.id.weaponRarity)
+            weaponUsed = view.findViewById(R.id.weaponType)
         }
     }
 

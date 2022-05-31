@@ -18,6 +18,8 @@ class GenshinModel(applicationContext: Context) {
     private val dataBase = DataBase.getInstance(applicationContext)
 
     var isCharacter: Boolean = false
+    var characterVision: Boolean = false
+    var characterWeapon: Boolean = false
     var isWeapon: Boolean = false
     var isArtifact: Boolean = false
     var vision: String = ""
@@ -26,7 +28,7 @@ class GenshinModel(applicationContext: Context) {
     var weaponName: String = ""
     var artifactName: String = ""
 
-    val searchInfo get() = SearchInfo(isCharacter, isWeapon, isArtifact, vision, weaponType, characterName, weaponName, artifactName)
+    val searchInfo get() = SearchInfo(isCharacter, characterVision, characterWeapon, isWeapon, isArtifact, vision, weaponType, characterName, weaponName, artifactName)
 
     fun getCharacter(listener: Response.Listener<List<GICharacter>>,
                      errorListener: Response.ErrorListener) =

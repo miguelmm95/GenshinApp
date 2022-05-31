@@ -70,7 +70,10 @@ class MainActivity : AppCompatActivity(), IMainActivity {
         charactersRadioButton.setOnClickListener { presenter.makeCharacterVisible() }
         weaponsRadioButton.setOnClickListener { presenter.makeWeaponVisible() }
         artifactsRadioButton.setOnClickListener { presenter.makeArtifactVisible() }
-        characterVisionSearch.setOnClickListener { presenter.startSearch() }
+        characterVisionSearch.setOnClickListener { presenter.startSearchByVision() }
+        characterWeaponTypeSearch.setOnClickListener { presenter.startSearchByWeaponType() }
+        visionAndWeaponTypeSearchButton.setOnClickListener { presenter.startSearch() }
+        weaponTypeSearchButton.setOnClickListener { presenter.startSearch() }
 
         val model = GenshinModel(applicationContext)
         presenter = GenshinPresenter(this, model)
@@ -229,7 +232,7 @@ class MainActivity : AppCompatActivity(), IMainActivity {
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }.also { weaponsTypeSpinner.onItemSelectedListener = it }
     }
-    
+
     override fun showArtifacts(artifacts: List<Artifact>) {
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, artifacts)
         artifactsAutoTextView.apply {
@@ -252,8 +255,8 @@ class MainActivity : AppCompatActivity(), IMainActivity {
     }
 
     override fun onSearchPressed(info: SearchInfo) {
-        val intent = Intent(this,SearchActivity::class.java).apply { 
-            putExtra(SearchActivity.SEARCH_INFO,info)
+        val intent = Intent(this, SearchActivity::class.java).apply {
+            putExtra(SearchActivity.SEARCH_INFO, info)
         }
         startActivity(intent)
     }

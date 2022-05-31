@@ -5,10 +5,14 @@ import es.uji.al386686.genshinapp.SearchInfo
 class SearchPresenter(val view: SearchActivity, info: SearchInfo, val model: SearchModel) {
 
     init {
-        if (info.isCharacter){
+        if (info.isCharacter) {
             model.getCharacter({ characters ->
                 view.showCharacter(characters)
-            }, { error -> view.showError(error.toString())})
+            }, { error -> view.showError(error.toString()) })
+        } else if (info.isWeapon) {
+            model.getWeapon({ weapons ->
+                view.showWeapon(weapons)
+            }, { error -> view.showError(error.toString()) })
         }
     }
 }

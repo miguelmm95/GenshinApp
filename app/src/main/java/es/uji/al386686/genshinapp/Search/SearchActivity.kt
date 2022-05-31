@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import es.uji.al386686.genshinapp.CharacterAdapter
 import es.uji.al386686.genshinapp.DataBase.GICharacter
+import es.uji.al386686.genshinapp.DataBase.Weapon
 import es.uji.al386686.genshinapp.R
 import es.uji.al386686.genshinapp.SearchInfo
+import es.uji.al386686.genshinapp.WeaponAdapter
 
 class SearchActivity : AppCompatActivity(), ISearchActivity {
 
@@ -29,13 +31,19 @@ class SearchActivity : AppCompatActivity(), ISearchActivity {
         val info: SearchInfo = intent.getParcelableExtra(SEARCH_INFO)!!
 
         val model: SearchModel = SearchModel(applicationContext, info)
-        presenter = SearchPresenter(this, info ,model)
+        presenter = SearchPresenter(this, info, model)
 
-        if (info.isCharacter){
-            title = "Character Search"
-        }else if (info.isWeapon){
+        if (info.isCharacter) {
+            if (info.characterVision) {
+                title = "Search Character by Vision: " + info.vision
+            } else if (info.characterWeapon) {
+                title = "Search Character by Weapon: " + info.weaponType
+            } else {
+                title = "Character Search"
+            }
+        } else if (info.isWeapon) {
             title = "Weapon Search"
-        }else{
+        } else {
             title = "Artifact Search"
         }
     }
@@ -48,6 +56,12 @@ class SearchActivity : AppCompatActivity(), ISearchActivity {
         genshinView = findViewById(R.id.genshinView)
         genshinView.layoutManager = LinearLayoutManager(this)
         genshinView.adapter = CharacterAdapter(characters, this)
+    }
+
+    override fun showWeapon(weapons: List<Weapon>) {
+        genshinView = findViewById(R.id.genshinView)
+        genshinView.layoutManager = LinearLayoutManager(this)
+        genshinView.adapter = WeaponAdapter(weapons, this)
     }
 
 

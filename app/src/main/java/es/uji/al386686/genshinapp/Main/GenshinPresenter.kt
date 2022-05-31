@@ -105,4 +105,14 @@ class GenshinPresenter(val view: MainActivity, val model: GenshinModel) {
         model.isCharacter = false
         model.isWeapon = false
     }
+
+    fun startSearchByVision() {
+        model.characterVision = true
+        startSearch()
+    }
+
+    fun startSearchByWeaponType() {
+        model.characterWeapon = true
+        startSearch()
+    }
 }

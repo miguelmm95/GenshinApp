@@ -11,7 +11,7 @@ data class Weapon(
         val name: String,
         val rarity: String,
         val atk: Int,
-        val type: String) {
+        @ColumnInfo(name = "type") val type: String) {
 
     override fun toString(): String {
         return name

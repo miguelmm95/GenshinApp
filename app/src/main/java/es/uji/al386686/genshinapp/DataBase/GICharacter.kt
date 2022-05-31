@@ -12,7 +12,7 @@ data class GICharacter(
         val gender: String,
         val birthday: String,
         @ColumnInfo(name = "visionType") val visionType: String,
-        val weapon: String,
+        @ColumnInfo(name = "weapon") val weapon: String,
 ) {
 
     override fun toString(): String {
