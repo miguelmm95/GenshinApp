@@ -8,9 +8,11 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.*
 import es.uji.al386686.genshinapp.DataBase.*
+import es.uji.al386686.genshinapp.Info.InfoActivity
 import es.uji.al386686.genshinapp.R
 import es.uji.al386686.genshinapp.Search.SearchActivity
 import es.uji.al386686.genshinapp.SearchInfo
+import es.uji.al386686.genshinapp.SpecifySearch
 
 class MainActivity : AppCompatActivity(), IMainActivity {
 
@@ -74,6 +76,9 @@ class MainActivity : AppCompatActivity(), IMainActivity {
         characterWeaponTypeSearch.setOnClickListener { presenter.startSearchByWeaponType() }
         visionAndWeaponTypeSearchButton.setOnClickListener { presenter.startSearch() }
         weaponTypeSearchButton.setOnClickListener { presenter.startSearch() }
+        characterSearchButton.setOnClickListener { presenter.startSpecifySearch() }
+        weaponSearchButton.setOnClickListener { presenter.startSpecifySearch() }
+        artifactButtonSearch.setOnClickListener { presenter.startSpecifySearch() }
 
         val model = GenshinModel(applicationContext)
         presenter = GenshinPresenter(this, model)
@@ -257,6 +262,13 @@ class MainActivity : AppCompatActivity(), IMainActivity {
     override fun onSearchPressed(info: SearchInfo) {
         val intent = Intent(this, SearchActivity::class.java).apply {
             putExtra(SearchActivity.SEARCH_INFO, info)
+        }
+        startActivity(intent)
+    }
+
+    fun onSearchPressed(info:SpecifySearch){
+        val intent = Intent(this, InfoActivity::class.java).apply {
+            putExtra(InfoActivity.SPECIFY_INFO,info)
         }
         startActivity(intent)
     }

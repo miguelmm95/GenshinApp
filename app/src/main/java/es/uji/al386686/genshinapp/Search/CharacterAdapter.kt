@@ -1,4 +1,4 @@
-package es.uji.al386686.genshinapp
+package es.uji.al386686.genshinapp.Search
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import es.uji.al386686.genshinapp.DataBase.GICharacter
-import es.uji.al386686.genshinapp.Search.SearchActivity
+import es.uji.al386686.genshinapp.R
 
-class CharacterAdapter(val characters: List<GICharacter>, val view: SearchActivity) :
+class CharacterAdapter(val characters: List<GICharacter>, val view: SearchActivity, val onClickListener: (GICharacter) -> Unit) :
         RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var name: TextView
@@ -32,6 +32,9 @@ class CharacterAdapter(val characters: List<GICharacter>, val view: SearchActivi
             holder.name.text = name
             holder.vision.text = visionType
             holder.weaponUsed.text = weapon
+            holder.itemView.setOnClickListener {
+                onClickListener(characters[position])
+            }
         }
     }
 

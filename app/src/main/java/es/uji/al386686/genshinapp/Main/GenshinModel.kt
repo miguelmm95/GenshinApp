@@ -7,6 +7,7 @@ import android.util.Log
 import com.android.volley.Response
 import es.uji.al386686.genshinapp.DataBase.*
 import es.uji.al386686.genshinapp.SearchInfo
+import es.uji.al386686.genshinapp.SpecifySearch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -29,6 +30,7 @@ class GenshinModel(applicationContext: Context) {
     var artifactName: String = ""
 
     val searchInfo get() = SearchInfo(isCharacter, characterVision, characterWeapon, isWeapon, isArtifact, vision, weaponType, characterName, weaponName, artifactName)
+    val specifySearch get() = SpecifySearch(characterName, weaponName, artifactName, isCharacter, isWeapon)
 
     fun getCharacter(listener: Response.Listener<List<GICharacter>>,
                      errorListener: Response.ErrorListener) =

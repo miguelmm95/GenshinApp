@@ -17,13 +17,13 @@ import org.json.JSONObject
 
 private const val BASEURL = "https://genshinlist.com/api"
 private const val NAME = "name"
+private const val RARITY = "rarity"
 private const val CHARACTER_DESCRIPTION = "description"
 private const val CHARACTER_GENDER = "gender"
 private const val CHARACTER_BIRTHDAY = "birthday"
 private const val CHARACTER_VISION = "vision"
 private const val CHARACTER_WEAPON = "weapon"
 private const val WEAPON_ID = "id"
-private const val WEAPON_RARITY = "rarity"
 private const val WEAPON_ATK = "atk"
 private const val WEAPON_TYPE = "type"
 private const val ARTIFACT_ID = "id"
@@ -71,7 +71,8 @@ class Network private constructor(context: Context) {
                 val birthday = characterObject.getString(CHARACTER_BIRTHDAY)
                 val vision = characterObject.getString(CHARACTER_VISION)
                 val weapon = characterObject.getString(CHARACTER_WEAPON)
-                characters.add(GICharacter(name, description, gender, birthday, vision, weapon))
+                val rarity = characterObject.getString(RARITY)
+                characters.add(GICharacter(name, description, gender, birthday, vision, weapon,rarity))
             }
         } catch (e: JSONException) {
             errorListener.onErrorResponse(VolleyError("BAD JSON FORMAT"))
@@ -88,10 +89,10 @@ class Network private constructor(context: Context) {
                 val weaponObject = it[i] as JSONObject
                 val id = weaponObject.getString(WEAPON_ID)
                 val name = weaponObject.getString(NAME)
-                val rarity = weaponObject.getString(WEAPON_RARITY)
+                val rarity = weaponObject.getString(RARITY)
                 val atk = weaponObject.getString(WEAPON_ATK)
                 val type = weaponObject.getString(WEAPON_TYPE)
-                weapons.add(Weapon(id.toInt(), name, rarity, atk.toInt(), type))
+                weapons.add(Weapon(id.toInt(), name, rarity, atk, type))
             }
         } catch (e: JSONException) {
             errorListener.onErrorResponse(VolleyError("BAD JSON FORMAT"))

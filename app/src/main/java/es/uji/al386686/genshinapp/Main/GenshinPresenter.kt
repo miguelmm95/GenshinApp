@@ -76,6 +76,10 @@ class GenshinPresenter(val view: MainActivity, val model: GenshinModel) {
         view.onSearchPressed(model.searchInfo)
     }
 
+    fun startSpecifySearch() {
+        view.onSearchPressed(model.specifySearch)
+    }
+
     fun makeCharacterVisible() {
         view.weaponVisible = false
         view.characterVisible = true

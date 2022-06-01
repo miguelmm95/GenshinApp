@@ -9,8 +9,8 @@ import androidx.room.PrimaryKey
 data class Artifact(
         @PrimaryKey @ColumnInfo(name = "id") val id: Int,
         val name: String,
-        val setBonus2: String,
-        val setBonus4: String) {
+        val setBonus2: String?,
+        val setBonus4: String?) {
 
     override fun toString(): String {
         return name

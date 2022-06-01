@@ -56,4 +56,13 @@ interface DAO {
 
     @Query("SELECT * FROM weapons WHERE type == :weaponType")
     fun getWeaponsByType(weaponType: String?): List<Weapon>
+
+    @Query("SELECT * FROM characters WHERE name == :name")
+    fun getCharacterInfo(name: String?): GICharacter
+
+    @Query("SELECT * FROM weapons WHERE name == :name")
+    fun  getWeaponInfo(name: String?): Weapon
+
+    @Query("SELECT * FROM artifacts WHERE name == :name")
+    fun getArtifactInfo(name: String?): Artifact
 }

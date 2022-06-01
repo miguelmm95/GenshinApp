@@ -1,16 +1,14 @@
-package es.uji.al386686.genshinapp
+package es.uji.al386686.genshinapp.Search
 
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import es.uji.al386686.genshinapp.DataBase.GICharacter
 import es.uji.al386686.genshinapp.DataBase.Weapon
-import es.uji.al386686.genshinapp.Search.SearchActivity
+import es.uji.al386686.genshinapp.R
 
-class WeaponAdapter(val weapons: List<Weapon>, val view: SearchActivity) :
+class WeaponAdapter(val weapons: List<Weapon>, val view: SearchActivity, val onClickListener: (Weapon) -> Unit) :
         RecyclerView.Adapter<WeaponAdapter.ViewHolder>() {
     class ViewHolder(view:View) : RecyclerView.ViewHolder(view) {
         var name: TextView = view.findViewById(R.id.weaponName)
@@ -28,6 +26,9 @@ class WeaponAdapter(val weapons: List<Weapon>, val view: SearchActivity) :
             holder.name.text = name
             holder.rarity.text = rarity
             holder.type.text = type
+            holder.itemView.setOnClickListener {
+                onClickListener(weapons[position])
+            }
         }
     }
 

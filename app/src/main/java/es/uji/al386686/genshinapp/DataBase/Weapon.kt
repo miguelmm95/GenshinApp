@@ -10,7 +10,7 @@ data class Weapon(
         @PrimaryKey @ColumnInfo(name = "id") val id: Int,
         val name: String,
         val rarity: String,
-        val atk: Int,
+        val atk: String,
         @ColumnInfo(name = "type") val type: String) {
 
     override fun toString(): String {

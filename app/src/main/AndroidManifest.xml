@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GenshinApp">
         <activity android:name=".Search.SearchActivity"></activity>
+        <activity android:name=".Info.InfoActivity"></activity>
         <activity android:name=".Main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
