@@ -2,6 +2,8 @@ package es.uji.al386686.genshinapp.Search
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +16,6 @@ import es.uji.al386686.genshinapp.Info.InfoActivity
 class SearchActivity : AppCompatActivity(), ISearchActivity {
 
     lateinit var genshinView: RecyclerView
-    //lateinit var characterNameLayout : LinearLayout
 
     lateinit var presenter: SearchPresenter
     lateinit var model: SearchModel
@@ -27,8 +28,6 @@ class SearchActivity : AppCompatActivity(), ISearchActivity {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-
-        //characterNameLayout = findViewById(R.id.characterNameLayout)
 
         val info: SearchInfo = intent.getParcelableExtra(SEARCH_INFO)!!
 

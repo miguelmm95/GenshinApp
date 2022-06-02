@@ -6,26 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/characterNameLayout"
-        android:layout_width="341dp"
-        android:layout_height="31dp"
+    <TextView
+        android:id="@+id/weaponName"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="16dp"
-        android:orientation="vertical"
+        android:text="TextView"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tableLayout"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/weaponName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -36,9 +28,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/characterNameLayout">
+        app:layout_constraintTop_toBottomOf="@+id/weaponName">
 
         <TableRow
+            android:id="@+id/rarityRow"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -59,6 +52,7 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/weaponTypeRow"
             android:layout_width="wrap_content"
             android:layout_height="57dp"
             android:textAlignment="center">
