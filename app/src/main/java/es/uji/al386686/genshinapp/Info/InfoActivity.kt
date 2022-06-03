@@ -137,6 +137,7 @@ class InfoActivity : AppCompatActivity(), IInfoActivity {
             weaponRarityTextView.visibility = v
             weaponInfoRarity.visibility = v
             atkTextView.visibility = v
+            weaponAtk.visibility = v
             weaponTypeTextView.visibility = v
             weaponInfoType.visibility = v
         }

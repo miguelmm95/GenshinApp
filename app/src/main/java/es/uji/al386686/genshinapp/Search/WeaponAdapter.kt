@@ -12,9 +12,9 @@ import es.uji.al386686.genshinapp.R
 
 class WeaponAdapter(val weapons: List<Weapon>, val view: SearchActivity, val onClickListener: (Weapon) -> Unit) :
         RecyclerView.Adapter<WeaponAdapter.ViewHolder>() {
-    class ViewHolder(view:View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var name: TextView = view.findViewById(R.id.weaponName)
-        var type : TextView = view.findViewById(R.id.weaponType)
+        var type: TextView = view.findViewById(R.id.weaponType)
         var rarity: TextView = view.findViewById(R.id.weaponRarity)
 
         var weaponName: TextView = view.findViewById(R.id.weaponName)
@@ -24,17 +24,17 @@ class WeaponAdapter(val weapons: List<Weapon>, val view: SearchActivity, val onC
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.weapons_layout, parent,false)
-        return  ViewHolder(view)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.weapons_layout, parent, false)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        with(weapons[position]){
+        with(weapons[position]) {
             holder.name.text = name
             holder.rarity.text = rarity
             holder.type.text = type
 
-            when(rarity){
+            when (rarity) {
                 "1" -> {
                     holder.weaponName.setBackgroundColor(Color.parseColor("#989595"))
                     holder.rarityRow.setBackgroundColor(Color.parseColor("#B5B1B1"))

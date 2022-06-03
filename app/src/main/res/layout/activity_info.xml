@@ -38,13 +38,12 @@
         android:id="@+id/genderTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Gender: "
         android:textSize="18sp"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/descriptionTextView"
-        app:layout_constraintHorizontal_bias="0.606"
-        app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/characterDescription"
         tools:visibility="gone" />
 
@@ -65,12 +64,12 @@
         android:id="@+id/birthdayTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Birthday: "
         android:textSize="18sp"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/descriptionTextView"
-        app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/genderTextView"
         tools:visibility="gone" />
 
@@ -92,12 +91,12 @@
         android:id="@+id/rarityTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Rarity: "
         android:textSize="18sp"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/descriptionTextView"
-        app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/birthdayTextView"
         tools:visibility="gone" />
 
@@ -120,12 +119,12 @@
         android:id="@+id/visionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Vision: "
         android:textSize="18sp"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/descriptionTextView"
-        app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rarityTextView"
         tools:visibility="gone" />
 
@@ -133,12 +132,12 @@
         android:id="@+id/weaponTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Weapon: "
         android:textSize="18sp"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/descriptionTextView"
-        app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/visionTextView"
         tools:visibility="gone" />
 
@@ -189,6 +188,7 @@
         android:id="@+id/weaponInfoRarity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="34dp"
         android:text="TextView"
         android:textSize="16sp"
@@ -207,7 +207,6 @@
         android:text="ATK: "
         android:textSize="18sp"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/weaponRarityTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weaponRarityTextView"
         tools:visibility="gone" />
@@ -216,6 +215,7 @@
         android:id="@+id/weaponAtk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="TextView"
         android:textSize="16sp"
@@ -229,12 +229,12 @@
         android:id="@+id/weaponTypeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Type: "
         android:textSize="18sp"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/weaponRarityTextView"
-        app:layout_constraintStart_toStartOf="@+id/weaponRarityTextView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/atkTextView"
         tools:visibility="gone" />
 
@@ -242,6 +242,7 @@
         android:id="@+id/weaponInfoType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="TextView"
         android:textSize="16sp"
@@ -266,17 +267,17 @@
 
     <TextView
         android:id="@+id/artifactTwoBonus"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="210dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:text="TextView"
         android:textSize="16sp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/twoBonusTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/twoBonusTextView"
-        app:layout_constraintTop_toTopOf="@+id/twoBonusTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/twoBonusTextView"
         tools:visibility="gone" />
 
     <TextView
@@ -289,22 +290,22 @@
         android:textSize="18sp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/twoBonusTextView"
+        app:layout_constraintTop_toBottomOf="@+id/artifactTwoBonus"
         tools:visibility="gone" />
 
     <TextView
         android:id="@+id/artifactFourBonus"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="202dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:text="TextView"
         android:textSize="16sp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/fourBonusTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/fourBonusTextView"
-        app:layout_constraintTop_toTopOf="@+id/fourBonusTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fourBonusTextView"
         tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

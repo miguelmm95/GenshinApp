@@ -266,9 +266,9 @@ class MainActivity : AppCompatActivity(), IMainActivity {
         startActivity(intent)
     }
 
-    fun onSearchPressed(info:SpecifySearch){
+    fun onSearchPressed(info: SpecifySearch) {
         val intent = Intent(this, InfoActivity::class.java).apply {
-            putExtra(InfoActivity.SPECIFY_INFO,info)
+            putExtra(InfoActivity.SPECIFY_INFO, info)
         }
         startActivity(intent)
     }
